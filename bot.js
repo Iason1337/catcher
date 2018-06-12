@@ -18,9 +18,9 @@ client.on('ready', () => {
 
 
  client.on("message", msg => {
-   if (msg.content.includes("catcher rules")) {
+   if (msg.content.includes("catcher free rules")) {
    const embed = new Discord.RichEmbed()
-   .setAuthor("[GR] Hypixel Discord Rules")
+   .setAuthor("Discord Rules")
    .addField("Rule #1", "Do not spam")
    .addField("Rule #2", "Do not advertise")
    .addField("Rule #3", "Do not post unreleated hypixel videos on #hypixel-videos")
@@ -41,6 +41,22 @@ client.on('ready', () => {
         });
     }
 });
+
+client.on('message', function(message) {
+    if (message.content == "catcher clear 20") {
+        if (message.member.hasPermission("MANAGE_MESSAGES")) {
+            message.channel.fetchMessages()
+               .then(function(list){
+                    message.channel.bulkDelete(20);
+                    const embed = new Discord.RichEmbed()
+                    .addField("Messages deleted", "I've cleared 20 Messages!")
+                    .setColor(0x004bbc)
+                    message.channel.send({embed})
+                }, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
+        }
+    }
+
+})
  
  
  client.login(process.env.BOT_TOKEN);
