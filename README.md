@@ -1,2 +1,1 @@
-# catcher
-catcher-discord
+# OLYMPUS BOT BY PANAYIOTIS
