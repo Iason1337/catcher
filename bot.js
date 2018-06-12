@@ -43,13 +43,13 @@ client.on('ready', () => {
 });
 
 client.on('message', function(message) {
-    if (message.content == "catcher clear 20") {
+    if (message.content == "catcher clear 10") {
         if (message.member.hasPermission("MANAGE_MESSAGES")) {
             message.channel.fetchMessages()
                .then(function(list){
                     message.channel.bulkDelete(20);
                     const embed = new Discord.RichEmbed()
-                    .addField("Messages deleted", "I've cleared 20 Messages!")
+                    .addField("Messages deleted", "I've cleared 10 Messages!")
                     .setColor(0x004bbc)
                     message.channel.send({embed})
                 }, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
