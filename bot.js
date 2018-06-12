@@ -42,21 +42,65 @@ client.on('ready', () => {
     }
 });
 
-client.on('message', function(message) {
-    if (message.content == "catcher clear 10") {
-        if (message.member.hasPermission("MANAGE_MESSAGES")) {
-            message.channel.fetchMessages()
-               .then(function(list){
-                    message.channel.bulkDelete(20);
-                    const embed = new Discord.RichEmbed()
-                    .addField("Messages deleted", "I've cleared 10 Messages!")
-                    .setColor(0x004bbc)
-                    message.channel.send({embed})
-                }, function(err){message.channel.send("ERROR: ERROR CLEARING CHANNEL.")})
-        }
-    }
+ client.on("message", (message) => {
+      if (message.content.startsWith("catcher kick")) {
+          if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(":x: Access denied!")
+          var member= message.mentions.members.first();
+          member.kick().then((member) => {
+              message.channel.send(":thumbsup: " + member.displayName + " has been successfully kicked");
+          }).catch(() => {
+              message.channel.send("Sorry I can't kick this person!");
+          });
 
-})
+      }
+
+  });
+
+ client.on("message", (message) => {
+      if (message.content.startsWith("catcher ban")) {
+          if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":x: Access denied!")
+          var member= message.mentions.members.first();
+          member.ban().then((member) => {
+              message.channel.send(":thumbsup: " + member.displayName + " has been successfully banned");
+          }).catch(() => {
+              message.channel.send("Sorry I can't ban this person!");
+          });
+
+      }
+
+  });
+
+client.on('message', msg => {
+  if (msg.content === 'no') {
+    msg.reply('no u');
+
+  }
+
+});
+
+client.on('message', msg => {
+  if (msg.content === 'NO') {
+    msg.reply('no u');
+
+  }
+
+});
+
+client.on('message', msg => {
+  if (msg.content === 'nO') {
+    msg.reply('no u');
+
+  }
+
+});
+
+client.on('message', msg => {
+  if (msg.content === 'No') {
+    msg.reply('no u');
+
+  }
+
+});
  
  
  client.login(process.env.BOT_TOKEN);
