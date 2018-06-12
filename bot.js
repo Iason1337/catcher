@@ -43,5 +43,5 @@ client.on('ready', () => {
 });
  
  
- client.login('NDUzNDgxMTE5ODcxMDA4Nzcw.DgFwTA._R9_e5i62cjUVAG4m41m1H6KfpM');
+ client.login(process.env.BOT_TOKEN);
 
