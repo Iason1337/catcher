@@ -70,6 +70,15 @@ client.on('ready', () => {
 
   });
  
+
+client.on("message", async message =>{
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0].toLowerCase();
+  let args = messageArray.slice(1);
+  if(cmd==="!invites") {
+  message.guild.fetchInvites()
+  .then(invites => message.channel.send("You currently have " + invites.find(invite => invite.inviter.id === message.author.id).uses + " invites")) }
+});
  
  client.login(process.env.BOT_TOKEN);
 
