@@ -69,38 +69,6 @@ client.on('ready', () => {
       }
 
   });
-
-client.on('message', msg => {
-  if (msg.content === 'no') {
-    msg.reply('no u');
-
-  }
-
-});
-
-client.on('message', msg => {
-  if (msg.content === 'NO') {
-    msg.reply('no u');
-
-  }
-
-});
-
-client.on('message', msg => {
-  if (msg.content === 'nO') {
-    msg.reply('no u');
-
-  }
-
-});
-
-client.on('message', msg => {
-  if (msg.content === 'No') {
-    msg.reply('no u');
-
-  }
-
-});
  
  
  client.login(process.env.BOT_TOKEN);
