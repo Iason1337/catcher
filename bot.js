@@ -75,7 +75,7 @@ client.on("message", async message =>{
  // let messageArray = message.content.split(" ");
  // let cmd = messageArray[0].toLowerCase();
  // let args = messageArray.slice(1);
-  if(cmd==="!invites") {
+ if(cmd==="!invites") {
   message.guild.fetchInvites()
   .then(invites => message.reply("You currently have " + invites.find(invite => invite.inviter.id === message.author.id).uses + " invites")) }
 });
